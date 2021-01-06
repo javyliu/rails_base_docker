@@ -1,0 +1,65 @@
+from ruby:alpine
+MAINTAINER javy_liu@163.com
+
+RUN gem install bundler -v 2.1.4
+
+RUN apk add --update --no-cache \
+      binutils-gold \
+      build-base \
+      curl \
+      file \
+      g++ \
+      gcc \
+      git \
+      less \
+      libstdc++ \
+      libffi-dev \
+      libc-dev \
+      linux-headers \
+      libxml2-dev \
+      libxslt-dev \
+      libgcrypt-dev \
+      make \
+      netcat-openbsd \
+      nodejs \
+      openssl \
+      pkgconfig \
+      postgresql-dev \
+      python3\
+      tzdata \
+      yarn
+
+WORKDIR /app
+COPY Gemfile Gemfile.lock ./
+RUN bundle config build.nokogiri --use-system-libraries
+RUN bundle check || bundle install
+#COPY package.json yarn.lock ./
+#RUN yarn install --check-files
+#COPY . ./
+#ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]
+cmd ["/bin/sh"]
+
+
+#ARG USER_ID
+#ARG GROUP_ID
+#run addgroup --gid $GROUP_ID javy
+#run add user --disabled-password --gecos "" --uid $USER_ID --gid $GROUP_ID javy
+#
+#Run curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+#    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+#    && apt-get update -qq \
+#    && apt-get install -y nodejs postgresql-client \
+#    && apt-get install -y yarn \
+#    && yarn install --check-files
+#
+#workdir /home/javy
+#
+#COPY Gemfile Gemfile.lock ./
+#RUN gem install bundler -v 2.1.4
+#
+#
+#
+#user $user_id
+#
+#cmd ["bin/bash"]
+#
