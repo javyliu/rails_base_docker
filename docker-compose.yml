@@ -15,6 +15,9 @@ services:
       - "3001:3001"
     depends_on:
       - db
+    environment:
+      - RAILS_ENV: development
+      - RAILS_SERVE_STATIC_FILES: yes
 volumes:
   db_data:
 

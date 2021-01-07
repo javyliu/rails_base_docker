@@ -22,11 +22,15 @@ RUN apk update \
     && apk upgrade \
     && apk add --update --no-cache $build_package $dev_packages $ruby_packages
 
+# no home, no passwd, no description
+RUN adduser -DH -u1200 -g "" -s /bin/sh vagrant vagrant
+USER vagrant
+
 COPY Gemfile* ./
 RUN bundle check || bundle install
 COPY . ./
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["sh","./entrypoint.sh"]
 
 EXPOSE 3001
 
