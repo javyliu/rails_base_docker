@@ -35,7 +35,7 @@ USER vagrant
 COPY --chown=vagrant:vagrant Gemfile* ./
 
 RUN bundle config disable_platform_warnings true \
-    #&& bundle config set --local  path 'vendor/bundle' \
+    && bundle config set --local  path 'vendor/bundle' \
     && bundle check || bundle install
 
 COPY --chown=vagrant:vagrant . ./

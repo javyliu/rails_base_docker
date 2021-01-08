@@ -94,6 +94,7 @@ workflow:
   adapter: mysql2
   encoding: utf8
   username: attendance
+  database: attendance
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   password: <%= Rails.application.credentials.workflow_db_pwd %>
   port: 3306
