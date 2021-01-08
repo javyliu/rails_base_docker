@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# Author: javy liu
+#Date & Time: 2021-01-08 14:02:33
+#Description:编译生产环境image
+
+docker build -f Dockerfile.pro -t rbd_pro .
+
+#result: 结果本地大小为231M, push 到 hub 后的大小93M,可接受
