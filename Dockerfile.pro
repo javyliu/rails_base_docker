@@ -2,7 +2,7 @@ FROM  ruby:alpine as build-env
 
 ARG RAILS_ROOT=/app
 ARG BUILD_PACKAGES="build-base curl-dev git"
-ARG DEV_PACKAGES="postgresql-dev yaml-dev zlib-dev nodejs yarn"
+ARG DEV_PACKAGES="postgresql-dev mysql-dev yaml-dev zlib-dev nodejs yarn"
 #ARG DEV_PACKAGES="sqlite-dev yaml-dev zlib-dev nodejs yarn"
 ARG RUBY_PACKAGES="tzdata"
 
@@ -51,7 +51,7 @@ RUN rm -rf node_modules tmp/cache  vendor/assets spec
 
 FROM ruby:alpine
 ARG RAILS_ROOT=/app
-ARG PACKAGES="tzdata postgresql-client nodejs"
+ARG PACKAGES="tzdata postgresql-client mysql-client nodejs"
 #ARG PACKAGES="tzdata sqlite-dev nodejs>10"
 
 ENV RAILS_ENV=production

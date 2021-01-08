@@ -88,3 +88,17 @@ production:
   <<: *default
   #username: app
   #password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+#
+#
+workflow:
+  adapter: mysql2
+  encoding: utf8
+  username: attendance
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  password: <%= Rails.application.credentials.workflow_db_pwd %>
+  port: 3306
+  host: 192.168.0.189
+
+redmine:
+  pool: 5
+  url: <%= Rails.application.credentials.redmine_db_url  %>

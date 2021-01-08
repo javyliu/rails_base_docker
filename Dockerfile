@@ -9,11 +9,12 @@ ARG build_package="build-base\
 
 
 ARG dev_packages="postgresql-dev \
+                  mysql-dev \
                  yaml-dev \
                  zlib-dev \
                  nodejs \
-                 yarn \
-                 imagemagick"
+                 yarn "
+#                 imagemagick
 
 ARG ruby_packages="tzdata"
 
