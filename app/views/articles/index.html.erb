@@ -23,7 +23,8 @@
     <% end %>
   </tbody>
 </table>
-
+<%= page_entries_info @articles, entry_name: "item" %>
+<%= paginate @articles %>
 <br>
 
 <%= link_to 'New Article', new_article_path %>
