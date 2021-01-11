@@ -84,6 +84,7 @@ GEM
     ffi (1.14.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    hiredis (0.6.3)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.1)
@@ -123,9 +124,6 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    pry-doc (1.1.0)
-      pry (~> 0.11)
-      yard (~> 0.9.11)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.6)
@@ -220,7 +218,6 @@ GEM
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    yard (0.9.26)
     zeitwerk (2.4.2)
 
 PLATFORMS
@@ -230,12 +227,12 @@ DEPENDENCIES
   actionpack-page_caching
   bootsnap (>= 1.4.4)
   capybara (>= 3.26)
+  hiredis
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.3)
   mysql2 (~> 0.5)
   pg (~> 1.1)
-  pry-doc
   pry-rails
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)

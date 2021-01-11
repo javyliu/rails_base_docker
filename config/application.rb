@@ -17,7 +17,6 @@ module App
     # in config/environments, which are processed later.
     #
     config.time_zone = "Beijing"
-    config.web_console.permissions = '192.168.30.0/16'
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end

@@ -8,8 +8,16 @@ services:
       - POSTGRES_USER=javy
       - POSTGRES_PASSWORD=123123
       - POSTGRES_DB=pearl_db
-
-
+    ports:
+      - "5432:5432"
+  redis:
+    image: redis:5.0.7
+    volumes:
+      - db_redis:/data
+    ports:
+      - "6379:6379"
+    environment:
+      - REDIS_PASSWORD=123123
   web:
     build:
       context: .
@@ -21,6 +29,7 @@ services:
     ports:
       - "3001:3001"
     depends_on:
+      - redis
       - db
     environment:
       DB_USERNAME: javy
@@ -33,5 +42,7 @@ services:
       EDITOR: vi
 volumes:
   db_data:
+  db_redis:
+  gem_cache:
 
 

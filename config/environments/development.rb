@@ -14,15 +14,34 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+
+  config.web_console.permissions = '192.168.30.0/16'
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
     config.action_controller.enable_fragment_cache_logging = true
 
-    config.cache_store = :memory_store
+    #config.cache_store = :memory_store
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
+    }
+    cache_servers = Rails.application.credentials.dev_redis_url
+    #cache_servers = ['redis://redis:6379/0']
+    #redis_sidekiq_dev_url: redis://127.0.0.1:6379/3
+    #redis_sidekiq_pro_url: redis://:aiEl%40203@127.0.0.1:6379/3
+    #redis_cache_dev_url: ['redis://127.0.0.1:6379/1']
+    #redis_cache_pro_url: ['redis://:aiEl%40203@127.0.0.1:6379/1']
+    config.cache_store = :redis_cache_store, {url: cache_servers,
+                                              connect_timeout: 30,
+                                              read_timeout: 0.2,
+                                              write_timeout: 0.2,
+                                              error_handler: -> (method, returning, exception ){
+                                                logger '000000000000000----'
+                                                log.info method.inspect
+                                                log.info exception.inspect
+                                              }
     }
   else
     config.action_controller.perform_caching = false
