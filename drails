@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# Author: javy liu
+#Date & Time: 2021-01-09 09:34:50
+#Description: 用于简化docker-compose 命令
+
+docker-compose exec web bin/rails $*
