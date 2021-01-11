@@ -1,0 +1,32 @@
+<%= form_with(model: novel) do |form| %>
+  <% if novel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(novel.errors.count, "error") %> prohibited this novel from being saved:</h2>
+
+      <ul>
+        <% novel.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ccontent %>
+    <%= form.text_field :ccontent %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
