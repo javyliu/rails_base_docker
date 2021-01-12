@@ -17,6 +17,7 @@ services:
       - ./log:/app/log
       - ./storage:/app/storage
       - ./tmp:/app/tmp
+      - ./config/master.key:/app/config/master.key
     ports:
       - "3001:3001"
     depends_on:

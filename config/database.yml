@@ -19,7 +19,6 @@ default: &default
   encoding: unicode
   host: <%= ENV.fetch("DB_HOST") %>
   username: <%= ENV.fetch("DB_USERNAME") %>
-  #password: <%= ENV.fetch("DB_PASSWORD") %>
   password: <%= Rails.application.credentials.db_pwd %>
   database: <%= ENV.fetch("DB_DATABASE") %>
   port: <%= ENV['DB_PORT'] || '5432' %>

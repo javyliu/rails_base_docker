@@ -26,6 +26,7 @@ services:
     #privileged: true
     volumes:
       - .:/app
+      - node_modules:/app/node_modules
     ports:
       - "3001:3001"
     depends_on:
@@ -33,16 +34,35 @@ services:
       - db
     environment:
       DB_USERNAME: javy
-      DB_PASSWORD: 123123
       DB_DATABASE: pearl_db
       DB_PORT: 5432
       DB_HOST: db
       RAILS_ENV: development
       RAILS_MAX_THREADS: 5
       EDITOR: vi
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    depends_on:
+      - redis
+      - db
+      - web
+    environment:
+      DB_USERNAME: javy
+      DB_DATABASE: pearl_db
+      DB_PORT: 5432
+      DB_HOST: db
+      RAILS_ENV: development
+      RAILS_MAX_THREADS: 5
+    entrypoint: ["sh","./sidekiq-entrypoint.sh"]
 volumes:
   db_data:
   db_redis:
   gem_cache:
+  node_modules:
 
 
