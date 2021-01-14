@@ -24,6 +24,12 @@ gem 'hiredis'
 
 gem 'sidekiq'
 
+gem 'devise'
+gem 'jwt'
+gem 'simple_command'
+
+#gem 'grape'
+
 # Use Active Model has_secure_password
 #gem 'bcrypt', '~> 3.1.7'
 #页面缓存

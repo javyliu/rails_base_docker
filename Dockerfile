@@ -13,6 +13,7 @@ ARG dev_packages="postgresql-dev \
                  yaml-dev \
                  zlib-dev \
                  nodejs \
+                 less \
                  yarn "
 #                 imagemagick
 
@@ -20,6 +21,7 @@ ARG ruby_packages="tzdata"
 
 ENV BUNDLE_APP_CONFIG=$rails_root/.bundle
 
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN apk update \
     && apk upgrade \
