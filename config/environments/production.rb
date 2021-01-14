@@ -24,6 +24,9 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  #for devise
+  config.action_mailer.default_url_options = { host: '192.168.30.33', port: 3001 }
+
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 

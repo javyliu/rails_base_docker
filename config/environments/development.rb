@@ -14,6 +14,8 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+  #for devise
+  config.action_mailer.default_url_options = { host: '192.168.30.33', port: 3001 }
 
   config.web_console.permissions = '192.168.30.0/16'
 
