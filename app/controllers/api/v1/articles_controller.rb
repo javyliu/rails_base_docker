@@ -1,6 +1,6 @@
 module Api
   module V1
-    class ArticlesController < ActionController::API
+    class ArticlesController < Api::ApplicationController
       def index
         articles = Article.all
         articles = articles.map do |art|

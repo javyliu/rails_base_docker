@@ -21,7 +21,7 @@ class AuthenticateUser
       return nil
     end
 
-    unless user.authenticate(password)
+    unless user.valid_password?(password)
       errors.add :message, "Invalid email /password"
       return nil
     end

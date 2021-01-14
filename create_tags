@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+# Author: javy liu
+#Date & Time: 2021-01-14 17:53:48
+#Description:
+
+ctags -R -f .git/tags .
