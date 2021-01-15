@@ -6,6 +6,8 @@ module Api
 
 
     private
+    #如果header中 Authorization 验证通过，即会返回该用户
+    #headers['Authorization']中的格式为 {user_id: xx, exp:xxx}
     def authenticate_request
       command = AuthorizeApiRequest.call(request.headers)
       Rails.logger.debug "-----------"

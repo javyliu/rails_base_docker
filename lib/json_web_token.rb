@@ -7,7 +7,6 @@ class JsonWebToken
       JWT.encode(playload, secret_key_base)
     end
 
-
     def decode(token)
       secret_key_base = Rails.application.credentials.secret_key_base
       body = JWT.decode(token, secret_key_base)[0]
