@@ -22,6 +22,9 @@ class AuthorizeApiRequest
   end
 
   def decoded_auth_token
+    Rails.logger.debug "-----------------------"
+    Rails.logger.debug(http_auth_header)
+    Rails.logger.debug "-----------------------"
     @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
   end
 

@@ -7,10 +7,13 @@ module Api
 
     private
     def authenticate_request
-      @current_api_user = AuthorizeApiRequest.call(request.headers).result
+      command = AuthorizeApiRequest.call(request.headers)
+      Rails.logger.debug "-----------"
+      Rails.logger.debug command.errors
 
-      render json: {error: "This is not a authorized request."}, status: :unauthorized unless @current_api_user
+      @current_api_user = command.result
 
+      render json: {error: command.errors.full_messages }, status: :unauthorized unless command.success?
     end
 
   end
