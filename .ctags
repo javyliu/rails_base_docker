@@ -1,0 +1,14 @@
+--recurse=yes
+--tag-relative=yes
+--exclude=.git
+--exclude=*.js
+--exclude=*.css
+--exclude=*.scss
+--exclude=*.coffee
+--exclude=*.h
+--exclude=*.html
+--exclude=*.erb
+--exclude=*.c
+--exclude=*.hpp
+--exclude=*.cpp
+
