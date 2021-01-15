@@ -1,7 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
+Rails web 及 Rails Api basic docker image
+
+with folling setting:
+* devise
+* multipart database pq and mysql2
+* sidekiq
+* redis
+* 
 application up and running.
+
 
 Things you may want to cover:
 
